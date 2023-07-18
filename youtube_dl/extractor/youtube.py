@@ -457,7 +457,6 @@ class YoutubeBaseInfoExtractor(InfoExtractor):
         return urljoin('https://www.youtube.com', url_or_path)
 
     def _extract_uploader_id(self, uploader_url):
-        print('marco');
         return self._search_regex(
             r'/(?:(?:channel|user)/|(?=@))([^/?&#]+)', uploader_url or '',
             'uploader id', default=None)
@@ -2438,7 +2437,7 @@ class YoutubeIE(YoutubeBaseInfoExtractor):
 
         return merge_dicts(
             info, {
-                'uploader_id': '@PhilippHagemeister',
+                'uploader_id': self._extract_uploader_id(owner_profile_url),
                 'uploader_url': owner_profile_url,
                 'channel_id': channel_id,
                 'channel_url': channel_id and self._yt_urljoin('/channel/' + channel_id),
