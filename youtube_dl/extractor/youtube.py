@@ -457,7 +457,7 @@ class YoutubeBaseInfoExtractor(InfoExtractor):
         return urljoin('https://www.youtube.com', url_or_path)
 
     def _extract_uploader_id(self, uploader_url):
-        print(uploader_url);
+        print('marco');
         return self._search_regex(
             r'/(?:(?:channel|user)/|(?=@))([^/?&#]+)', uploader_url or '',
             'uploader id', default=None)
